@@ -17,7 +17,7 @@ class Main extends StatelessWidget {
       body: Container(
         height: screenSize.height,
         width: screenSize.width,
-        color: Colors.purple,
+        color: Colors.grey,
         child: SingleChildScrollView(
           child: Center(
             child: Column(
@@ -33,15 +33,23 @@ class Main extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 const Text('Create account'),
-                Image.asset('assets/create.jpeg', height: 150, width: 150),
+                Image.asset(
+                  'assets/create.jpeg',
+                  height: screenSize.height * 0.2,
+                  width: screenSize.width * 0.4,
+                ),
                 const Text('The Home Page'),
-                Image.asset('assets/home.jpeg', height: 150, width: 150),
+                Image.asset(
+                  'assets/home.jpeg',
+                  height: screenSize.height * 0.2,
+                  width: screenSize.width * 0.4,
+                ),
                 const SizedBox(height: 10),
                 const Text('Meal analysis and recommendation app'),
                 Image.asset(
                   'assets/a well organized macro table.jpeg',
-                  height: 150,
-                  width: 150,
+                  height: screenSize.height * 0.2,
+                  width: screenSize.width * 0.4,
                 ),
                 const SizedBox(height: 10),
 
