@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+void main() {
+  runApp(const MaterialApp(debugShowCheckedModeBanner: false, home: Main()));
+}
+
 class Main extends StatelessWidget {
   const Main({super.key});
   final String mealMindApkUrl =
