@@ -3,8 +3,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Main extends StatelessWidget {
   const Main({super.key});
-  final String apkUrl =
-      'https://1drv.ms/u/c/183e619627e0e8bc/IQBqzJ60PhEHTIp3qUov0v4UAVKx82fy9KOHtuXhuWFE9hs?e=l3LJfn';
+  final String mealMindApkUrl =
+      'https://1drv.ms/u/c/183e619627e0e8bc/IQBqzJ60PhEHTIp3qUov0v4UAVKx82fy9KOHtuXhuWFE9hs?e=rvaWn2';
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class Main extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () async {
                     //downloading the app
-                    final Uri url = Uri.parse(apkUrl);
+                    final Uri url = Uri.parse(mealMindApkUrl);
                     try {
                       if (await canLaunchUrl(url)) {
                         await launchUrl(url);
