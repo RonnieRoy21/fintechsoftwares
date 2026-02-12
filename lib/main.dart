@@ -99,7 +99,7 @@ class Main extends StatelessWidget {
                   'Enable "Install from unknown sources" if prompted to install the app.',
                   style: TextStyle(
                     fontSize: 12,
-                    color: Color.fromARGB(179, 14, 241, 33),
+                    color: Colors.redAccent,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
