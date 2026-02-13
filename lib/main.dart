@@ -7,11 +7,15 @@ void main() {
 
 class Main extends StatelessWidget {
   const Main({super.key});
-  final String mealMindApkUrlOneDrive =
-      'https://1drv.ms/u/c/183e619627e0e8bc/IQBqzJ60PhEHTIp3qUov0v4UAVKx82fy9KOHtuXhuWFE9hs?e=rvaWn2';
+
+  // Update this URL to point to the APK hosted on Vercel
+  final String mealMindApkUrl =
+      'https://fintechsoftwares.vercel.app/mealmind.apk';
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -21,36 +25,47 @@ class Main extends StatelessWidget {
       body: Container(
         height: screenSize.height,
         width: screenSize.width,
-        color: Colors.grey,
+        color: Colors.grey[300],
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height:
-                    screenSize.height * 0.6, // set a max height for carousel
+                height: screenSize.height * 0.6,
                 child: CarouselView(
                   itemExtent: screenSize.width * 0.5,
-                  children: [
-                    Image.asset('assets/login.jpeg', fit: BoxFit.cover),
-                    Image.asset('assets/create.jpeg', fit: BoxFit.cover),
-                    Image.asset('assets/home.jpeg', fit: BoxFit.cover),
-                    Image.asset(
-                      'assets/a well organized macro table.jpeg',
+                  children: const [
+                    Image(
+                      image: AssetImage('assets/login.jpeg'),
                       fit: BoxFit.cover,
                     ),
-                    Image.asset('assets/checkout.jpeg', fit: BoxFit.cover),
+                    Image(
+                      image: AssetImage('assets/create.jpeg'),
+                      fit: BoxFit.cover,
+                    ),
+                    Image(
+                      image: AssetImage('assets/home.jpeg'),
+                      fit: BoxFit.cover,
+                    ),
+                    Image(
+                      image: AssetImage(
+                        'assets/a well organized macro table.jpeg',
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                    Image(
+                      image: AssetImage('assets/checkout.jpeg'),
+                      fit: BoxFit.cover,
+                    ),
                   ],
                 ),
               ),
               const SizedBox(height: 8),
               ElevatedButton(
                 onPressed: () async {
-                  final Uri url = Uri.parse(mealMindApkUrlOneDrive);
+                  final Uri url = Uri.parse(mealMindApkUrl);
                   try {
-                    if (await canLaunchUrl(url)) {
-                      await launchUrl(url);
-                    } else {
+                    if (!await launchUrl(url)) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Could not launch URL')),
                       );
@@ -64,25 +79,20 @@ class Main extends StatelessWidget {
                 child: const Text('Download the MealMind App'),
               ),
               const SizedBox(height: 10),
-              const Text(
-                'After Downloading, check your downloads folder,click the APK file to install the app on your Android device.',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  'After downloading, open your downloads folder and tap the APK file to install the app on your Android device.',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
               const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(16.0),
                 child: Text(
                   'Enable "Install from unknown sources" if prompted to install the app.',
-                  style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
               ),
