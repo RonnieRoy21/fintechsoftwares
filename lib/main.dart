@@ -7,9 +7,9 @@ void main() {
 
 class Main extends StatelessWidget {
   const Main({super.key});
-  final String mealMindApkUrl =
+  final String mealMindApkUrlOneDrive =
       'https://1drv.ms/u/c/183e619627e0e8bc/IQBqzJ60PhEHTIp3qUov0v4UAVKx82fy9KOHtuXhuWFE9hs?e=rvaWn2';
-
+final String mealMindApkUrlDropBox ='https://www.dropbox.com/scl/fi/jqnoh6bl9v8tm9iqu1rnn/mealmind.apk?rlkey=dv5t8gvpfsokmj3l55pydo63t&st=v7817akn&dl=0';
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -65,6 +65,25 @@ class Main extends StatelessWidget {
                 child: const Text('Download the MealMind App'),
               ),
               const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () async {
+                  final Uri url = Uri.parse(mealMindApkUrlDropBox);
+                  try {
+                    if (await canLaunchUrl(url)) {
+                      await launchUrl(url);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Could not launch URL')),
+                      );
+                    }
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Error launching URL: $e')),
+                    );
+                  }
+                },
+                child: const Text('Alternative Download Link'),
+              ),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
