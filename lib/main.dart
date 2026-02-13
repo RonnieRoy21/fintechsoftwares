@@ -9,7 +9,6 @@ class Main extends StatelessWidget {
   const Main({super.key});
   final String mealMindApkUrlOneDrive =
       'https://1drv.ms/u/c/183e619627e0e8bc/IQBqzJ60PhEHTIp3qUov0v4UAVKx82fy9KOHtuXhuWFE9hs?e=rvaWn2';
-  final String mealMindApkUrlDropBox = 'https://ufile.io/nk2laqaf';
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -44,7 +43,7 @@ class Main extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 8),
               ElevatedButton(
                 onPressed: () async {
                   final Uri url = Uri.parse(mealMindApkUrlOneDrive);
@@ -64,26 +63,17 @@ class Main extends StatelessWidget {
                 },
                 child: const Text('Download the MealMind App'),
               ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () async {
-                  final Uri url = Uri.parse(mealMindApkUrlDropBox);
-                  try {
-                    if (await canLaunchUrl(url)) {
-                      await launchUrl(url);
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Could not launch URL')),
-                      );
-                    }
-                  } catch (e) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Error launching URL: $e')),
-                    );
-                  }
-                },
-                child: const Text('Alternative Download Link'),
+              const SizedBox(height: 10),
+              const Text(
+                'After Downloading, check your downloads folder,click the APK file to install the app on your Android device.',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
+              const SizedBox(height: 20),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
