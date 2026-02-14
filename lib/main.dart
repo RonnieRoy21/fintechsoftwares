@@ -25,7 +25,7 @@ class Main extends StatelessWidget {
       body: Container(
         height: screenSize.height,
         width: screenSize.width,
-        color: Colors.grey[300],
+        color: Colors.grey[400],
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
