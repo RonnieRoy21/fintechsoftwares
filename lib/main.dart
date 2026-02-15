@@ -72,7 +72,7 @@ class Main extends StatelessWidget {
                     }
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Error launching URL: $e')),
+                      SnackBar(content: Text('Error launching URL')),
                     );
                   }
                 },
