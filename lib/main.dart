@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-void main() {
+
+void main()async {
+  //initialize firebase using the firebase_options file
+
   runApp(const MaterialApp(debugShowCheckedModeBanner: false, home: Main()));
 }
 
@@ -10,7 +13,7 @@ class Main extends StatelessWidget {
 
   // Update this URL to point to the APK hosted on Vercel
   final String mealMindApkUrl =
-      'https://fintechsoftwares.vercel.app/mealmind.apk';
+      'https://github.com/RonnieRoy21/MealMind/releases/download/myTag/mealmind.apk';
 
   @override
   Widget build(BuildContext context) {
